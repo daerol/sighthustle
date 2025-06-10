@@ -154,13 +154,8 @@ I don't know yet.`
       // Simulate network delay
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
-      // Simulate streaming response
-      let currentText = ""
-      for (let i = 0; i < mockedAnswers.length; i++) {
-        currentText += mockedAnswers[i]
-        setAnswers(currentText)
-        await new Promise((resolve) => setTimeout(resolve, 10)) // Small delay for streaming effect
-      }
+      // Display the full answer instantly
+      setAnswers(mockedAnswers)
     } catch (err: any) {
       setError(err.message || "An unexpected error occurred during mock analysis.")
       setAnswers("")
